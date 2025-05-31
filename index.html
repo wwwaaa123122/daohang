@@ -6,113 +6,307 @@
     <title>星辰旅人服务导航</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #2a4365, #0f3460);
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
             min-height: 100vh;
-            margin: 0;
             padding: 20px;
             background-image: url('https://wwwaaa123122.cn-nb1.rains3.com/aaa/Image_1748144986993.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-blend-mode: overlay;
+            color: #fff;
         }
-
+        
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
+            margin: 0 auto;
         }
-
-        .service-item {
-            background: white;
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
             padding: 20px;
-            margin: 10px 0;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            animation: fadeInDown 0.8s ease;
+        }
+        
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #e0e0e0, #b0b0b0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.6;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.18);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-header {
+            padding: 25px 25px 15px;
             display: flex;
             align-items: center;
-            text-decoration: none;
-            color: #333;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .service-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
+        
         .icon {
-            font-size: 24px;
+            font-size: 32px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
             margin-right: 15px;
-            width: 40px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .cloud-icon {
+            background: linear-gradient(135deg, #2196F3, #21CBF3);
+            color: white;
+        }
+        
+        .backup-icon {
+            background: linear-gradient(135deg, #2ecc71, #1abc9c);
+            color: white;
+        }
+        
+        .email-icon {
+            background: linear-gradient(135deg, #e74c3c, #e67e22);
+            color: white;
+        }
+        
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+        
+        .card-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .card-content p {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .service-url {
+            display: block;
+            font-size: 0.95rem;
+            color: #64b5f6;
+            margin-top: 5px;
+            word-break: break-all;
+        }
+        
+        .card-footer {
+            padding: 0 25px 25px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
         }
-
-        .content h2 {
-            margin: 0 0 5px 0;
-            font-size: 18px;
+        
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
-
-        .content p {
-            margin: 0;
-            color: #666;
-            font-size: 14px;
+        
+        .cloud-card:hover .btn {
+            background: linear-gradient(135deg, #2196F3, #21CBF3);
         }
-
-        .cloud {
-            color: #2196F3;
+        
+        .backup-card:hover .btn {
+            background: linear-gradient(135deg, #2ecc71, #1abc9c);
         }
-
-        .email {
-            color: #e74c3c;
+        
+        .email-card:hover .btn {
+            background: linear-gradient(135deg, #e74c3c, #e67e22);
         }
-
-        .backup {
-            color: #2ecc71;
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <a href="https://www.mcxclr.top" class="service-item" target="_blank">
-            <i class="icon fas fa-cloud cloud"></i>
-            <div class="content">
-                <h2>星辰旅人云盘（主）</h2>
-                <p>www.mcxclr.top</p>
+        <header>
+            <h1>星辰旅人服务导航</h1>
+            <p>一站式访问星辰旅人提供的所有云服务</p>
+        </header>
+        
+        <div class="services-grid">
+            <!-- 主云盘 -->
+            <div class="service-card cloud-card">
+                <div class="card-header">
+                    <div class="icon cloud-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <div>
+                        <h2>星辰旅人云盘（主）</h2>
+                        <span class="service-url">www.mcxclr.top</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>星辰旅人云盘</p>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.mcxclr.top" class="btn" target="_blank">
+                        访问云盘 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-        </a>
-
-        <a href="https://kc6xj6ew.cn-nb1.rainapp.top" class="service-item" target="_blank">
-            <i class="icon fas fa-cloud-download-alt backup"></i>
-            <div class="content">
-                <h2>备用云盘</h2>
-                <p>雨云云应用</p>
+            
+            <!-- 备用云盘 -->
+            <div class="service-card backup-card">
+                <div class="card-header">
+                    <div class="icon backup-icon">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </div>
+                    <div>
+                        <h2>备用云盘</h2>
+                        <span class="service-url">kc6xj6ew.cn-nb1.rainapp.top</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>基于雨云云应用的备用云存储，一周同步一次主站。</p>
+                </div>
+                <div class="card-footer">
+                    <a href="https://kc6xj6ew.cn-nb1.rainapp.top" class="btn" target="_blank">
+                        访问备用云盘 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-        </a>
-
-        <a href="https://mail.mcxclr.top" class="service-item" target="_blank">
-            <i class="icon fas fa-envelope email"></i>
-            <div class="content">
-                <h2>星辰旅人邮箱</h2>
-                <p>mail.mcxclr.top</p>
+            
+            <!-- 邮箱服务 -->
+            <div class="service-card email-card">
+                <div class="card-header">
+                    <div class="icon email-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h2>星辰旅人邮箱</h2>
+                        <span class="service-url">mail.mcxclr.top</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>由Cloudflare提供无服务器邮箱</p>
+                </div>
+                <div class="card-footer">
+                    <a href="https://mail.mcxclr.top" class="btn" target="_blank">
+                        访问邮箱 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-        </a>
-
-        <a href="https://mail.457132.xyz" class="service-item" target="_blank">
-            <i class="icon fas fa-mail-bulk backup"></i>
-            <div class="content">
-                <h2>备用邮箱服务</h2>
-                <p>mail.457132.xyz</p>
+            
+            <!-- 备用邮箱 -->
+            <div class="service-card backup-card">
+                <div class="card-header">
+                    <div class="icon backup-icon">
+                        <i class="fas fa-mail-bulk"></i>
+                    </div>
+                    <div>
+                        <h2>备用邮箱服务</h2>
+                        <span class="service-url">mail.457132.xyz</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>当主邮箱服务不可用时，可通过此备用邮箱服务继续收邮件。</p>
+                </div>
+                <div class="card-footer">
+                    <a href="https://mail.457132.xyz" class="btn" target="_blank">
+                        访问备用邮箱 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-        </a>
+        </div>
+        
+        <footer>
+            <p>© 2025 星辰旅人</p>
+        </footer>
     </div>
 </body>
 </html>
