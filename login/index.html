@@ -1,1 +1,118 @@
-l
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星辰旅人服务导航</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://wwwaaa123122.cn-nb1.rains3.com/wallpaper_1743911627447.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-blend-mode: overlay;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .service-item {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .service-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .icon {
+            font-size: 24px;
+            margin-right: 15px;
+            width: 40px;
+            text-align: center;
+        }
+
+        .content h2 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+        }
+
+        .content p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .cloud {
+            color: #2196F3;
+        }
+
+        .email {
+            color: #e74c3c;
+        }
+
+        .backup {
+            color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://www.mcxclr.top" class="service-item" target="_blank">
+            <i class="icon fas fa-cloud cloud"></i>
+            <div class="content">
+                <h2>星辰旅人云盘（主）</h2>
+                <p>www.mcxclr.top</p>
+            </div>
+        </a>
+
+        <a href="https://kc6xj6ew.cn-nb1.rainapp.top" class="service-item" target="_blank">
+            <i class="icon fas fa-cloud-download-alt backup"></i>
+            <div class="content">
+                <h2>备用云盘</h2>
+                <p>雨云云应用</p>
+            </div>
+        </a>
+
+        <a href="https://mail.mcxclr.top" class="service-item" target="_blank">
+            <i class="icon fas fa-envelope email"></i>
+            <div class="content">
+                <h2>星辰旅人邮箱</h2>
+                <p>mail.mcxclr.top</p>
+            </div>
+        </a>
+
+        <a href="https://mail.457132.xyz" class="service-item" target="_blank">
+            <i class="icon fas fa-mail-bulk backup"></i>
+            <div class="content">
+                <h2>备用邮箱服务</h2>
+                <p>mail.457132.xyz</p>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
