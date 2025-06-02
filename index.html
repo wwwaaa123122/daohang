@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta name="baidu-site-verification" content="codeva-76mjfk7TRU" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>星辰旅人服务导航</title>
@@ -21,7 +20,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
-            background-image: url('https://wwwaaa123122.cn-nb1.rains3.com/img/Image_1748791853666.png');
+            background-image: url('https://wwwaaa123122.cn-nb1.rains3.com/image_download_1748746155595.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -121,6 +120,12 @@
             color: white;
         }
         
+        /* 新增图库图标样式 */
+        .gallery-icon {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+            color: white;
+        }
+        
         .card-content {
             padding: 25px;
             flex-grow: 1;
@@ -180,6 +185,11 @@
         
         .email-card:hover .btn {
             background: linear-gradient(135deg, #e74c3c, #e67e22);
+        }
+        
+        /* 新增图库卡片悬停按钮样式 */
+        .gallery-card:hover .btn {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
         }
         
         footer {
@@ -303,10 +313,31 @@
                     </a>
                 </div>
             </div>
+            
+            <!-- 新增：星辰旅人の图库 -->
+            <div class="service-card gallery-card">
+                <div class="card-header">
+                    <div class="icon gallery-icon">
+                        <i class="fas fa-images"></i>
+                    </div>
+                    <div>
+                        <h2>星辰旅人の图库</h2>
+                        <span class="service-url">alist.mcxclr.top</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p>基于alist的图库，提供高速稳定的图片存储和直链服务。</p>
+                </div>
+                <div class="card-footer">
+                    <a href="https://alist.mcxclr.top" class="btn" target="_blank">
+                        访问图库 <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
         </div>
         
         <footer>
-            <p>© 2025 星辰旅人  有事联系：admin@mcxclr.top</p>
+            <p>© 2025 星辰旅人    有事联系：admin@mcxclr.top</p>
         </footer>
     </div>
 </body>
