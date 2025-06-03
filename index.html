@@ -26,6 +26,7 @@
             background-attachment: fixed;
             background-blend-mode: overlay;
             color: #fff;
+            padding-bottom: 100px; /* 为底部播放器留出空间 */
         }
         
         .container {
@@ -120,7 +121,6 @@
             color: white;
         }
         
-        /* 新增图库图标样式 */
         .gallery-icon {
             background: linear-gradient(135deg, #9b59b6, #8e44ad);
             color: white;
@@ -187,7 +187,6 @@
             background: linear-gradient(135deg, #e74c3c, #e67e22);
         }
         
-        /* 新增图库卡片悬停按钮样式 */
         .gallery-card:hover .btn {
             background: linear-gradient(135deg, #9b59b6, #8e44ad);
         }
@@ -198,6 +197,188 @@
             padding: 20px;
             color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
+        }
+        
+        /* 音乐播放器样式 */
+        .music-player {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 42, 108, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .play-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2196F3, #21CBF3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .music-info {
+            flex: 1;
+            margin: 0 15px;
+        }
+        
+        .song-title {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .artist {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .progress-container {
+            flex: 3;
+            position: relative;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #2196F3, #21CBF3);
+            border-radius: 3px;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        
+        .time-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+        
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 120px;
+        }
+        
+        .volume-slider {
+            width: 80px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .volume-level {
+            height: 100%;
+            background: linear-gradient(to right, #2196F3, #21CBF3);
+            border-radius: 3px;
+            width: 70%;
+        }
+        
+        .player-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .player-action {
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+        
+        .player-action:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .mini-player-btn {
+            position: absolute;
+            top: -25px;
+            right: 20px;
+            background: rgba(26, 42, 108, 0.8);
+            border-radius: 50% 50% 0 0;
+            width: 40px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .mini-player-btn:hover {
+            color: white;
+            background: rgba(33, 150, 243, 0.8);
+        }
+        
+        .mini-player {
+            height: 25px;
+            padding: 5px 15px;
+        }
+        
+        .mini-player .play-btn {
+            width: 25px;
+            height: 25px;
+            font-size: 0.8rem;
+        }
+        
+        .mini-player .music-info {
+            margin: 0 10px;
+        }
+        
+        .mini-player .song-title {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+        
+        .mini-player .progress-container,
+        .mini-player .volume-control,
+        .mini-player .player-actions {
+            display: none;
         }
         
         @keyframes fadeInDown {
@@ -218,6 +399,20 @@
             
             .services-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .player-controls {
+                flex-wrap: wrap;
+            }
+            
+            .progress-container {
+                order: 3;
+                flex: 1 0 100%;
+                margin-top: 10px;
+            }
+            
+            .volume-control {
+                min-width: auto;
             }
         }
     </style>
@@ -263,7 +458,7 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <p>基于雨云云应用的备用云存储，一周同步一次主站。</p>
+                    <p>基于雨云云应用的备用云存储，一周同���一次主站。</p>
                 </div>
                 <div class="card-footer">
                     <a href="https://kc6xj6ew.cn-nb1.rainapp.top" class="btn" target="_blank">
@@ -314,7 +509,7 @@
                 </div>
             </div>
             
-            <!-- 新增：星辰旅人の图库 -->
+            <!-- 星辰旅人の图库 -->
             <div class="service-card gallery-card">
                 <div class="card-header">
                     <div class="icon gallery-icon">
@@ -340,5 +535,192 @@
             <p>© 2025 星辰旅人    有事联系：admin@mcxclr.top</p>
         </footer>
     </div>
+    
+    <!-- 音乐播放器 -->
+    <div class="music-player" id="musicPlayer">
+        <div class="mini-player-btn" id="miniPlayerBtn">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        
+        <div class="player-controls">
+            <div class="play-btn" id="playBtn">
+                <i class="fas fa-pause"></i>
+            </div>
+            
+            <div class="music-info">
+                <div class="song-title" id="songTitle">未来再见（星辰版）</div>
+                <div class="artist" id="artist">HOYO-MiX</div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <div class="time-info">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+            
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <div class="volume-slider" id="volumeSlider">
+                    <div class="volume-level" id="volumeLevel"></div>
+                </div>
+            </div>
+            
+            <div class="player-actions">
+                <div class="player-action" id="prevBtn">
+                    <i class="fas fa-step-backward"></i>
+                </div>
+                <div class="player-action" id="nextBtn">
+                    <i class="fas fa-step-forward"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="bgMusic" loop>
+        <!-- 使用指定的音乐文件 -->
+        <source src="https://wwwaaa123122.cn-nb1.rains3.com/music/HOYO-MiX-%E6%9C%AA%E6%9D%A5%E5%86%8D%E8%A7%81%20%28Instrumental%29.flac" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('bgMusic');
+            const playBtn = document.getElementById('playBtn');
+            const progressBar = document.getElementById('progressBar');
+            const progress = document.getElementById('progress');
+            const currentTimeEl = document.getElementById('currentTime');
+            const durationEl = document.getElementById('duration');
+            const volumeSlider = document.getElementById('volumeSlider');
+            const volumeLevel = document.getElementById('volumeLevel');
+            const musicPlayer = document.getElementById('musicPlayer');
+            const miniPlayerBtn = document.getElementById('miniPlayerBtn');
+            const songTitle = document.getElementById('songTitle');
+            const artist = document.getElementById('artist');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            // 自动播放音乐（处理浏览器限制）
+            function startPlayback() {
+                const playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log('音乐开始播放');
+                    }).catch(error => {
+                        console.log('自动播放被阻止:', error);
+                        // 显示播放按钮提示
+                        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                        playBtn.style.background = 'linear-gradient(135deg, #e74c3c, #e67e22)';
+                    });
+                }
+            }
+            
+            // 格式化时间 (秒 -> mm:ss)
+            function formatTime(seconds) {
+                const min = Math.floor(seconds / 60);
+                const sec = Math.floor(seconds % 60);
+                return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+            }
+            
+            // 更新进度条
+            function updateProgress() {
+                const currentTime = audio.currentTime;
+                const duration = audio.duration;
+                
+                if (isFinite(duration)) {
+                    const progressPercent = (currentTime / duration) * 100;
+                    progress.style.width = `${progressPercent}%`;
+                    currentTimeEl.textContent = formatTime(currentTime);
+                    durationEl.textContent = formatTime(duration);
+                }
+            }
+            
+            // 设置进度
+            function setProgress(e) {
+                const width = this.clientWidth;
+                const clickX = e.offsetX;
+                const duration = audio.duration;
+                
+                if (isFinite(duration)) {
+                    audio.currentTime = (clickX / width) * duration;
+                }
+            }
+            
+            // 设置音量
+            function setVolume(e) {
+                const width = this.clientWidth;
+                const clickX = e.offsetX;
+                const volume = Math.min(1, Math.max(0, clickX / width));
+                
+                audio.volume = volume;
+                volumeLevel.style.width = `${volume * 100}%`;
+            }
+            
+            // 切换播放状态
+            function togglePlay() {
+                if (audio.paused) {
+                    audio.play();
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                    playBtn.style.background = 'linear-gradient(135deg, #2196F3, #21CBF3)';
+                } else {
+                    audio.pause();
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    playBtn.style.background = 'linear-gradient(135deg, #2ecc71, #1abc9c)';
+                }
+            }
+            
+            // 切换播放器大小
+            function togglePlayerSize() {
+                musicPlayer.classList.toggle('mini-player');
+                const icon = miniPlayerBtn.querySelector('i');
+                
+                if (musicPlayer.classList.contains('mini-player')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            }
+            
+            // 事件监听
+            audio.addEventListener('timeupdate', updateProgress);
+            audio.addEventListener('ended', () => {
+                // 循环播放
+                audio.currentTime = 0;
+                audio.play();
+            });
+            
+            audio.addEventListener('loadedmetadata', () => {
+                durationEl.textContent = formatTime(audio.duration);
+            });
+            
+            playBtn.addEventListener('click', togglePlay);
+            progressBar.addEventListener('click', setProgress);
+            volumeSlider.addEventListener('click', setVolume);
+            miniPlayerBtn.addEventListener('click', togglePlayerSize);
+            
+            // 上一首/下一首按钮（示例）
+            prevBtn.addEventListener('click', () => {
+                // 在实际应用中这里会切换到上一首歌曲
+                alert('切换到上一首歌曲');
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                // 在实际应用中这里会切换到下一首歌曲
+                alert('切换到下一首歌曲');
+            });
+            
+            // 初始化音量
+            audio.volume = 0.7;
+            volumeLevel.style.width = '70%';
+            
+            // 开始播放
+            startPlayback();
+        });
+    </script>
 </body>
 </html>
